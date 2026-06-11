@@ -1,0 +1,101 @@
+:root {
+    --bg-main: #0b0c10;       
+    --bg-card: #14171e;       
+    --grid-line: #1f2833;     
+    --text-pure: #ffffff;    
+    --text-muted: #8592a3;    
+    --brand-f1: #E10600;     
+    --neon-cyan: #00f5ff;     
+    --neon-green: #39ff14;    
+    --neon-magenta: #ff007f;  
+    --neon-gold: #f0db51;     
+}
+
+@font-face {
+    font-family: "snasm";
+    src: url("fonts/Snasm.ttf") format("truetype");
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: "snasm", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #0b0c10;
+        background-image: 
+        linear-gradient(rgba(31, 40, 51, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31, 40, 51, 0.3) 1px, transparent 1px);
+        background-size: 40px 40px;
+    background-position: center;
+}
+
+h1{
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    text-align: center;
+    font-family: "snasm", sans-serif;
+    margin: 0;
+    background: linear-gradient(
+        120deg, 
+        #E10600 0%, 
+        #E10600 45%, 
+        rgba(255, 255, 255, 0.9) 50%, 
+        #E10600 55%, 
+        #E10600 100%
+    );
+    background-size: 300% 100%; 
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 2s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+h1:hover{
+    background-position: 0% 0;
+}
+
+.bottom-band{
+    margin-top:auto;
+    width: 100%;
+    height: 40px; /* Forces a tight, professional narrow bar layout */
+    background: var(--brand-f1, #E10600); /* Uses your F1 Red variable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 -5px 20px rgba(225, 6, 0, 0.2); /* Soft red telemetry glow upwards */
+}
+
+.contact-text{
+    font-family: "snasm", sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-pure, #ffffff);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.social-links{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.social-icon{
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+}
+
+.social-icon:hover{
+    color: var(--bg-main, #0b0c10); 
+    transform: rotate(15deg) scale(1.25); 
+    filter: drop-shadow(0 0 4px rgba(11, 12, 16, 0.5));
+}
+
