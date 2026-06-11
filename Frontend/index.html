@@ -11,8 +11,59 @@
 <body>
     <header>
         <h1>GridVector</h1>
-    </header>
-    
+    </div>
+</header>
+    <div class="dashboard-layout">
+        <nav class="sidebar-menu">
+            <h3 class="hover-film">Grid Reports</h3>
+            <button class="menu-btn active">Overtaker Report</button> 
+            <button class="menu-btn hover-film">Efficiency Index</button>
+            <button class="menu-btn hover-film">LWMA Rankings</button>
+            <button class="menu-btn hover-film">Strong Constructors</button>
+        </nav>
+
+        <main class="main-content">
+            <section class="query-card">
+                <h2 class="hover-film">Driver Analytics</h2>
+                <div class="input-group">
+                    <label for="driver-select" style="color: white">Select Driver:</label>
+                    <select id="driver-select" class="custom-select">
+                        <option value="lando-norris">Lando Norris</option>
+                        <option value="max-verstappen">Max Verstappen</option>
+                        <option value="oscar-piastri">Oscar Piastri</option>
+                        <option value="oliver-bearman">Oliver Bearman</option>
+                        <option value="kimi-antonelli">Kimi Antonelli</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="report-table-container">
+                <h2>Report Output</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Track</th>
+                            <th>Pos</th>
+                            <th>Driver</th>
+                            <th>Team</th>
+                            <th>Starting Pos</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Silverstone</td>
+                            <td>1</td>
+                            <td>Lando Norris</td>
+                            <td>McLaren Mercedes</td>
+                            <td>5</td>
+                            <td>25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
     <footer class="bottom-band">
     <span class="contact-text">Contact me:</span>
     <div class="social-links">
