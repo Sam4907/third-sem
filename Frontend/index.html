@@ -6,39 +6,29 @@
     <title>GridVector</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.lineicons.com/5.1/solid/lineicons-solid.css" rel="stylesheet">
-    <link href="https://cdn.lineicons.com/5.1/line/lineicons.css" rel="stylesheet"/>
+    <link href="https://cdn.lineicons.com/5.1/line/lineicons.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>GridVector</h1>
-    </div>
 </header>
     <div class="dashboard-layout">
         <nav class="sidebar-menu">
             <h3 class="hover-film">Grid Reports</h3>
-            <button class="menu-btn active">Overtaker Report</button> 
-            <button class="menu-btn hover-film">Efficiency Index</button>
-            <button class="menu-btn hover-film">LWMA Rankings</button>
-            <button class="menu-btn hover-film">Strong Constructors</button>
+            <button class="menu-btn hover-film active data-report">Overtaker Report</button> 
+            <button class="menu-btn hover-film data-report">Efficiency Index</button>
+            <button class="menu-btn hover-film data-report">LWMA Rankings</button>
+            <button class="menu-btn hover-film data-report">Strong Constructors</button>
         </nav>
 
         <main class="main-content">
             <section class="query-card">
-                <h2 class="hover-film">Driver Analytics</h2>
-                <div class="input-group">
-                    <label for="driver-select" style="color: white">Select Driver:</label>
-                    <select id="driver-select" class="custom-select">
-                        <option value="lando-norris">Lando Norris</option>
-                        <option value="max-verstappen">Max Verstappen</option>
-                        <option value="oscar-piastri">Oscar Piastri</option>
-                        <option value="oliver-bearman">Oliver Bearman</option>
-                        <option value="kimi-antonelli">Kimi Antonelli</option>
-                    </select>
-                </div>
+                <h2 class="hover-film" id="card-title">Driver Analytics</h2>
+                <div id="dynamic-selectors"></div>
+                <div class="input-group"></div>
             </section>
-
             <section class="report-table-container">
-                <h2>Report Output</h2>
+                <h2 id="report-name">Overtaker Report</h2>
                 <table class="data-table">
                     <thead>
                         <tr>
@@ -77,6 +67,7 @@
             <i class="lni lni-envelope-1"></i>
         </a>
     </div>
+    <script src="index.js"></script>
 </footer>
 </body>
 </html>
