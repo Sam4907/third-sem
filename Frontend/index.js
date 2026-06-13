@@ -36,7 +36,7 @@ const gridStructure =[
     },
     { 
         team: "Mercedes", 
-        drivers: ["George Russel", "Kimi Antonelli"] 
+        drivers: ["George Russell", "Kimi Antonelli"] 
     },
     { 
         team: "Kick Sauber Ferrari", 
@@ -52,7 +52,7 @@ const gridStructure =[
         drivers: ["Pierre Gasly", "Franco Colapinto", "Jack Doohan"] 
 
     },
-    { team: "Racing Bulls Honda RBPT", drivers: ["Isak Hadjar", "Liam Lawson"] 
+    { team: "Racing Bulls Honda RBPT", drivers: ["Isack Hadjar", "Liam Lawson"] 
 
     }
 ];
@@ -121,7 +121,7 @@ function generateDrDrop(cont, onsel){
     cont.appendChild(inputGroup);
 }
 
-function generateTrDrop(cont){
+function generateTrDrop(cont, onsel){
     document.getElementById('card-title').textContent='Track Analytics';
     const inputGroup=document.createElement('div');
     inputGroup.className='input-group';
@@ -130,7 +130,7 @@ function generateTrDrop(cont){
     label.textContent='Select Track:';
     inputGroup.appendChild(label);
     const {dropdownFrame, toggle, header, list}=createCust('Select Track');
-    tracks.forEach(track =>{
+    tracks.forEach(track=>{
         const item=document.createElement('li');
         item.className='dropdown-item';
         const link=document.createElement('a');
@@ -140,6 +140,9 @@ function generateTrDrop(cont){
             e.preventDefault();
             header.textContent=track;
             toggle.checked=false;
+            if(onsel){
+                onsel(track);
+            }
         });
         item.appendChild(link);
         list.appendChild(item);
@@ -148,7 +151,7 @@ function generateTrDrop(cont){
     cont.appendChild(inputGroup);
 }
 
-function generateTeDrop(cont) {
+function generateTeDrop(cont, onsel) {
     document.getElementById('card-title').textContent='Team Analytics';
     const inputGroup=document.createElement('div');
     inputGroup.className='input-group';
@@ -170,6 +173,9 @@ function generateTeDrop(cont) {
             e.preventDefault();
             header.textContent=team;
             toggle.checked=false;
+            if(onsel){
+                    onsel(team);
+            }
         });
         item.appendChild(link);
         list.appendChild(item);
@@ -191,180 +197,191 @@ sidemenu.addEventListener('click', (event)=>{
         let reportName=event.target.textContent;        
         const cont=document.getElementById('dynamic-selectors');
         const queryCard=document.querySelector('.query-card');
+        const tableHeaders=document.getElementById('head');
         cont.innerHTML='';
         switch(reportName){
             case 'Overtaker Report':
                 document.getElementById('report-name').textContent="Overtaker Report";
                 queryCard.style.display='none';
-                fetch('http://127.0.0.1:5000/overtaker')
-                    .then(response=>{
-                        return response.json(); 
-                    })
-                    .then(serverData=>{
-                        const tableBody=document.querySelector('.data-table tbody');
-                        const tableHeaders=document.getElementById('head');
-                        tableHeaders.innerHTML=`
-                        <tr>
-                            <th>Track</th>
-                            <th>Team</th>
-                            <th>Driver</th>
-                            <th>Pos</th>
-                            <th>Starting Pos</th>
-                            <th>Positions Gained</th>
-                        </tr>`;
-                        tableBody.innerHTML=''; 
-                        serverData.forEach(record=>{
-                            const tr=document.createElement('tr');
-                                tr.innerHTML= `
-                                <td>${record.track}</td>
-                                <td>${record.team}</td>
-                                <td>${record.driver}</td>
-                                <td>${record.pos}</td>
-                                <td>${record.starting_pos}</td>
-                                <td>${record.pos_gained}</td>
-                            `;
-                            tableBody.appendChild(tr);
-                        });
-                    })
-                    .catch(error=>console.error("Error fetching F1 data:", error));
+                tableHeaders.innerHTML=`
+                <tr>
+                    <th>Track</th>
+                    <th>Team</th>
+                    <th>Driver</th>
+                    <th>Pos</th>
+                    <th>Starting Pos</th>
+                    <th>Positions Gained</th>
+                </tr>`;
+                fetchInstantReport('http://127.0.0.1:5000/overtaker');  
                 break;
             case 'Efficiency Index':
                 document.getElementById('report-name').textContent='Efficiency Index';
                 queryCard.style.display='none';
-                fetch('http://127.0.0.1:5000/eff')
-                    .then(response=>{
-                        return response.json(); 
-                    })
-                    .then(serverData=>{
-                        const tableBody=document.querySelector('.data-table tbody');
-                        const tableHeaders=document.getElementById('head');
-                        tableHeaders.innerHTML=`
-                        <tr>
-                            <th>Team</th>
-                            <th>Driver</th>
-                            <th>Rank</th>
-                            <th>Volatility Score</th>
-                        </tr>`;
-                        tableBody.innerHTML=''; 
-                        serverData.forEach(record=>{
-                            const tr=document.createElement('tr');
-                                tr.innerHTML= `
-                                <td>${record.team}</td>
-                                <td>${record.driver}</td>
-                                <td>${record.rank}</td>
-                                <td>${record.std}</td>
-                            `;
-                            tableBody.appendChild(tr);
-                        });
-                    })
-                    .catch(error=>console.error("Error fetching F1 data:", error));
+                tableHeaders.innerHTML=`
+                <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Driver</th>
+                    <th>Volatility Ranking</th>
+                </tr>`;
+                fetchInstantReport('http://127.0.0.1:5000/eff');  
                 break;
             case 'LWMA Rankings':
                 document.getElementById('report-name').textContent='LWMA Rankings';
-                queryCard.style.display='none';
-                fetch('http://127.0.0.1:5000/lwma')
-                    .then(response=>{
-                        return response.json(); 
-                    })
-                    .then(serverData=>{
-                        const tableBody=document.querySelector('.data-table tbody');
-                        const tableHeaders=document.getElementById('head');
-                        tableHeaders.innerHTML=`
-                        <tr>
-                            <th>Team</th>
-                            <th>Driver</th>
-                            <th>Rank</th>
-                        </tr>`;
-                        tableBody.innerHTML=''; 
-                        serverData.forEach(record=>{
-                            const tr=document.createElement('tr');
-                                tr.innerHTML= `
-                                <td>${record.team}</td>
-                                <td>${record.driver}</td>
-                                <td>${record.rank}</td>
-                            `;
-                            tableBody.appendChild(tr);
-                        });
-                    })
-                    .catch(error=>console.error("Error fetching F1 data:", error));
+                 queryCard.style.display='none';
+                tableHeaders.innerHTML=`
+                <tr>
+                    <th>Rank</th>
+                    <th>Driver</th>
+                    <th>Team</th>
+                </tr>`;
+                fetchInstantReport('http://127.0.0.1:5000/lwma');  
                 break;
             case 'Strong Constructors':
                 document.getElementById('report-name').textContent='Strong Constructors';
                 queryCard.style.display='none';
-                fetch('http://127.0.0.1:5000/constructor')
-                    .then(response=>{
-                        return response.json(); 
-                    })
-                    .then(serverData=>{
-                        const tableBody=document.querySelector('.data-table tbody');
-                        const tableHeaders=document.getElementById('head');
-                        tableHeaders.innerHTML=`
-                        <tr>
-                            <th>Team</th>
-                            <th>DNFs</th>
-                        </tr>`;
-                        tableBody.innerHTML=''; 
-                        serverData.forEach(record=>{
-                            const tr=document.createElement('tr');
-                                tr.innerHTML= `
-                                <td>${record.team}</td>
-                                <td>${record.dnf}</td>
-                            `;
-                            tableBody.appendChild(tr);
-                        });
-                    })
-                    .catch(error=>console.error("Error fetching F1 data:", error));
+                tableHeaders.innerHTML=`
+                <tr>
+                    <th>Team</th>
+                    <th>DNFs</th>
+                </tr>`;
+                fetchInstantReport('http://127.0.0.1:5000/constructor');  
                 break;
-                case 'Recovery Driver':
-                document.getElementById('report-name').textContent='Recovery Driver';                
-                queryCard.style.display='block';
-                const tableHeaders=document.getElementById('head');
-                        tableHeaders.innerHTML=`
-                        <tr>
-                            <th>Track</th>
-                            <th>Team</th>
-                            <th>Driver</th>
-                            <th>Pos</th>
-                            <th>Starting Pos</th>
-                            <th>Points</th>
-                        </tr>`;
-                const tableBody=document.querySelector('.data-table tbody');
-                tableBody.innerHTML=''; 
+            case 'Recovery Driver':
+                document.getElementById('report-name').textContent = 'Recovery Driver';                
+                queryCard.style.display = 'block';
+                tableBody.innerHTML='';
+                tableHeaders.innerHTML = `
+                    <tr>
+                        <th>Track</th>
+                        <th>Team</th>
+                        <th>Driver</th>
+                        <th>Pos</th>
+                        <th>Starting Pos</th>
+                        <th>Points</th>
+                    </tr>`;
                 generateDrDrop(cont, (selectedDriver)=>{
-                const url=`http://127.0.0.1:5000/recovery/${encodeURIComponent(selectedDriver)}`;
-                fetch(url)
-                    .then(response=>response.json())
-                    .then(serverData=>{
-                        tableBody.innerHTML=''; 
-                        if(serverData.length===0){
-                            const tr=document.createElement('tr');
-                            tr.innerHTML=`
-                                <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 2rem;">
-                                    No data available for this driver
-                                </td>
-                            `;
-                            tableBody.appendChild(tr);
-                            return;
-                        }
-                        serverData.forEach(record=>{
-                            const tr=document.createElement('tr');
-                            tr.innerHTML=`
-                                <td>${record.track}</td>
-                                <td>${record.team}</td>
-                                <td>${record.driver}</td>
-                                <td>${record.pos}</td>
-                                <td>${record.starting_pos}</td>
-                                <td>${record.points}</td>
-                            `;
-                            tableBody.appendChild(tr);
-                        });
-                    })
-                    .catch(error=>console.error("Error fetching F1 data:", error));
-            });
-            break;
+                    fetchParameterizedReport(`http://127.0.0.1:5000/recovery/${encodeURIComponent(selectedDriver)}`, 6);
+                });
+                break;
+            case 'Team Clean Sweep':
+                document.getElementById('report-name').textContent = 'Team Clean Sweep';
+                queryCard.style.display = 'block';
+                tableBody.innerHTML='';
+                tableHeaders.innerHTML = `
+                    <tr>
+                        <th>Track</th>
+                        <th>Team</th>
+                        <th>Driver</th>
+                        <th>Pos</th>
+                        <th>Driver</th>
+                        <th>Pos</th>
+                        <th>Total points</th>
+                    </tr>`;
+                generateTeDrop(cont, (selectedTeam)=>{
+                    fetchParameterizedReport(`http://127.0.0.1:5000/clean/${encodeURIComponent(selectedTeam)}`, 7);
+                });
+                break;
+             case 'Racer DNF':
+                document.getElementById('report-name').textContent='Racer DNF';
+                queryCard.style.display='none';
+                tableHeaders.innerHTML=`
+                <tr>
+                    <th>Team</th>
+                    <th>Driver</th>
+                    <th>Starts</th>
+                    <th>DNFs</th>
+                    <th>Race Completion %</th>
+                </tr>`;
+                fetchInstantReport('http://127.0.0.1:5000/dnf');  
+                break;
+            case 'Trifecta':
+                document.getElementById('report-name').textContent='Trifecta';
+                queryCard.style.display='none';
+                tableHeaders.innerHTML=`
+                <tr>
+                    <th>Track</th>
+                    <th>Team</th>
+                    <th>Driver</th>
+                    <th>Pos</th>
+                    <th>Starting Pos</th>
+                    <th>Fastest Lap</th>
+                    <th>Points</th>
+                </tr>`;
+                fetchInstantReport('http://127.0.0.1:5000/trifecta');  
+                break;
+            case 'Dropoff':
+                document.getElementById('report-name').textContent='Dropoff';
+                queryCard.style.display='none';
+                tableHeaders.innerHTML=`
+                <tr>
+                    <th>Track</th>
+                    <th>Team</th>
+                    <th>Driver</th>
+                    <th>Pos</th>
+                    <th>Starting Pos</th>
+                </tr>`;
+                fetchInstantReport('http://127.0.0.1:5000/dropoff');  
+                break;
+            case 'Team MVP':
+                document.getElementById('report-name').textContent = 'Team MVP';
+                queryCard.style.display = 'block';
+                tableBody.innerHTML='';
+                tableHeaders.innerHTML = `
+                    <tr>
+                        <th>Track</th>
+                        <th>Team</th>
+                        <th>Driver</th>
+                        <th>Pos</th>
+                        <th>Points</th>
+                        <th>Points %</th>
+                        <th>Total Team Points</th>
+                    </tr>`;
+                generateTrDrop(cont, (selectedTr)=>{
+                    fetchParameterizedReport(`http://127.0.0.1:5000/mvp/${encodeURIComponent(selectedTr)}`, 7);
+                });
+                break;
         }
     }
 });
+
+const tableBody=document.querySelector('.data-table tbody');
+
+function fetchInstantReport(url){
+    tableBody.innerHTML='<tr><td colspan="10" style="text-align:center;">Loading records...</td></tr>';
+    fetch(url)
+        .then(res=>res.json())
+        .then(data=>renderTableRows(data))
+        .catch(err=>console.error("API Error:", err));
+}
+
+function fetchParameterizedReport(url, colSpanCount) {
+    tableBody.innerHTML='<tr><td colspan="10" style="text-align:center;">Loading records...</td></tr>';
+    fetch(url)
+        .then(res=>res.json())
+        .then(serverData=>{
+            if(!serverData||serverData.length==0){
+                tableBody.innerHTML=`<tr><td colspan="${colSpanCount}" style="text-align: center; color: var(--text-muted); padding: 2rem;">No data available for this selection</td></tr>`;
+                return;
+            }
+            renderTableRows(serverData);
+        })
+        .catch(err=>console.error("API Error:", err));
+}
+
+function renderTableRows(serverData){
+    tableBody.innerHTML='';
+    if(!serverData||serverData.length===0){
+        tableBody.innerHTML=`<tr><td colspan="10" style="text-align:center; padding:2rem;">No data available for this query</td></tr>`;
+        return;
+    }
+
+    serverData.forEach(record=>{
+        const tr=document.createElement('tr');
+        tr.innerHTML=Object.keys(record).map(key=>`<td>${record[key]}</td>`).join('');  
+        tableBody.appendChild(tr);
+    });
+}
 
 document.querySelector('.menu-btn.active')?.click();
 
