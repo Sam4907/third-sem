@@ -11,6 +11,10 @@
     --neon-gold: #f0db51;     
 }
 
+.hidden {
+    display: none !important;
+}
+
 html{
   scrollbar-width: thin;
   scrollbar-color: var(--text-muted) var(--bg-main); 
