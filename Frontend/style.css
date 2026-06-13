@@ -22,7 +22,7 @@ html{
 
 @font-face {
     font-family: "snasm";
-    src: url("fonts/Snasm.ttf") format("truetype");
+    src: url("Fonts/Snasm.ttf") format("truetype");
 }
 
 ::-webkit-scrollbar{
@@ -86,7 +86,7 @@ body{
 h1{
     font-size: clamp(2.5rem, 6vw, 5rem);
     text-align: center;
-    font-family: "snasm", sans-serif;
+    font-family: "snasm", monospace;
     margin: 0;
     background: linear-gradient(
         120deg, 
