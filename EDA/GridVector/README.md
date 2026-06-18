@@ -101,7 +101,7 @@ python gv.py
 
 ---
 
-## 👥 Authors & Data Attribution
+## Authors & Data Attribution
 
 * **Developer:** [Sameeha Yasmin](https://github.com/Sam4907)
-* **Data Source:** Telemetry and results compiled from the 2025 F1 Season dataset hosted on [Kaggle](https://www.kaggle.com/datasets/makslypko/f1-race-result-2025).
+* **Data Source:** Telemetry and results compiled from the 2025 F1 Season dataset hosted on [Kaggle](https://www.kaggle.com/datasets/makslypko/f1-race-result-2025)
