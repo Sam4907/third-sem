@@ -71,7 +71,7 @@ Ensure `Midfield_Playmaking.csv` is situated in the project directory, then run 
 python reg.py
 ```
 
-## Authors & Data Attribution
+## Author & Data Attribution
 
 * **Developer:** [Sameeha Yasmin](https://github.com/Sam4907)
 * **Data Source:** Statistics derived from the 2021-22 UEFA Champions League midfield playmaking dataset hosted on [Kaggle](https://www.kaggle.com/datasets/azminetoushikwasi/ucl-202122-uefa-champions-league)
