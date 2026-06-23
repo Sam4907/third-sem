@@ -5,7 +5,7 @@ java
 css
 js
 html
-flsak
+flask
 
 cp
 algorithm analysis
@@ -21,8 +21,7 @@ day 4 260610: pandas++matplotlib+seaborn+regista script
 day 5 260611: html+css+gridvector frontend
 day 6 260612: js+gridvector js
 day 7 260613: flask+rest apis+gridvector backend
-day 8 260614: break
-day 9 260615: documentation
-day 10 260616: break
-day 11 260617: break
+260614-17: break
 day 12 260618: documentation, cleanup and wrap up
+260619-22: break
+day 17 260623: itq group a and group b dry runs
