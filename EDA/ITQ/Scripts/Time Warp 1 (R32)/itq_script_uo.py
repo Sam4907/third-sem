@@ -2,8 +2,8 @@ import pandas as pd
 import itertools
 import numpy as np
 
-df=pd.read_csv("standings.csv")
-odds=pd.read_csv("odds.csv")
+df=pd.read_csv("../../Data/standings.csv")
+odds=pd.read_csv("../../Data/odds.csv")
 
 odds[['home', 'draw', 'away']]=odds[['home', 'draw', 'away']].map(pd.eval)
 odds[['home', 'draw', 'away']]=1/odds[['home', 'draw', 'away']]

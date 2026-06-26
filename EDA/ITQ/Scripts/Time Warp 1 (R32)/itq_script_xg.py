@@ -3,9 +3,9 @@ import itertools
 import numpy as np
 from scipy.stats import poisson
 
-df=pd.read_csv("standings.csv")
-odds=pd.read_csv("odds.csv") 
-stats=pd.read_csv("xg.csv", index_col="country")
+df=pd.read_csv("../../Data/standings.csv")
+odds=pd.read_csv("../../Data/odds.csv") 
+stats=pd.read_csv("../../Data/xg.csv", index_col="country")
 
 stats['xg_per_game']=stats['xg']/2
 stats['ga_per_game']=stats['ga']/2

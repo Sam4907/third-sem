@@ -3,23 +3,12 @@ import numpy as np
 import itertools
 from scipy.stats import poisson
 
-df=pd.read_csv("R16_placeholder.csv")
-stats=pd.read_csv("xg.csv", index_col="country")
+df=pd.read_csv("../Data/W.csv")
+stats=pd.read_csv("../Data/xg.csv", index_col="country")
 
-df['UID']=df['pos'].astype(str)+df['group']
+fixt={101: 102}
 
-#buiding the bracket
-thirds=set(df['UID'][df['pos']==3])
-combmaster=df['group'][df['pos']==3].str.cat(sep="")
-fixt={'2A': '2B', '1F': '2C', '2K': '2L', '1H': '2J', '1C': '2F', '2E': '2I', '1J': '2H', '2D': '2G'}
-req=pd.read_csv("annex_c.csv")
-for _, row in req.iterrows():
-    part=set(row[["1A", "1B", "1D", "1E", "1G", "1I", "1K", "1L"]])
-    if part==thirds:
-        fixt.update(row.drop('Option').to_dict())
-        break
-
-#generating 65536 universes
+#generating 16 universes
 outcomes=[[teama, teamb] for teama, teamb in fixt.items()]
 results=list(itertools.product(*outcomes))
 
@@ -52,10 +41,10 @@ def compute_match_odds(team_a, team_b, elo_a, elo_b):
 
 match_probs={}
 for teama, teamb in fixt.items():
-    team_a_name=df.loc[df['UID']==teama, 'team'].item()
-    team_a_elo=df.loc[df['UID']==teama, 'elo'].item()
-    team_b_name=df.loc[df['UID']==teamb, 'team'].item()
-    team_b_elo=df.loc[df['UID']==teamb, 'elo'].item()
+    team_a_name=df.loc[df['num']==teama, 'team'].item()
+    team_a_elo=df.loc[df['num']==teama, 'elo'].item()
+    team_b_name=df.loc[df['num']==teamb, 'team'].item()
+    team_b_elo=df.loc[df['num']==teamb, 'elo'].item()
     prob_a, prob_b=compute_match_odds(team_a_name, team_b_name, team_a_elo, team_b_elo)
     match_probs[teama]=prob_a
     match_probs[teamb]=prob_b
@@ -71,9 +60,10 @@ most_probable_universe=max(universe_weights, key=lambda x: x[1])
 best_bracket=most_probable_universe[0]
 best_prob=most_probable_universe[1]
 
+curr=89
 print(f"{best_prob:.3%}")
 for teama, teamb in fixt.items():
-    team_a_name=df.loc[df['UID']==teama, 'team'].item()
-    team_b_name=df.loc[df['UID']==teamb, 'team'].item()
-    winner = team_a_name if teama in best_bracket else team_b_name
+    team_a_name=df.loc[df['num']==teama, 'team'].item()
+    team_b_name=df.loc[df['num']==teamb, 'team'].item()
+    winner=team_a_name if teama in best_bracket else team_b_name
     print(f"{team_a_name} vs {team_b_name}::WINNER: {winner}")
