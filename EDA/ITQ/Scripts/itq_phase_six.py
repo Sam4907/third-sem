@@ -60,7 +60,6 @@ most_probable_universe=max(universe_weights, key=lambda x: x[1])
 best_bracket=most_probable_universe[0]
 best_prob=most_probable_universe[1]
 
-curr=89
 print(f"{best_prob:.3%}")
 for teama, teamb in fixt.items():
     team_a_name=df.loc[df['num']==teama, 'team'].item()
