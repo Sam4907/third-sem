@@ -8,7 +8,6 @@ stats=pd.read_csv("../Data/xg.csv", index_col="country")
 
 fixt={97: 98, 99: 100}
 
-#generating 16 universes
 outcomes=[[teama, teamb] for teama, teamb in fixt.items()]
 results=list(itertools.product(*outcomes))
 
