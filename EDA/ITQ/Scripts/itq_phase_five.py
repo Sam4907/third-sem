@@ -8,6 +8,11 @@ stats=pd.read_csv("../Data/xg.csv", index_col="country")
 
 fixt={97: 98, 99: 100}
 
+sf_to_f_mapping={
+    97: 101, 98: 101,  
+    99: 102, 100: 102
+}
+
 outcomes=[[teama, teamb] for teama, teamb in fixt.items()]
 results=list(itertools.product(*outcomes))
 
@@ -60,9 +65,16 @@ best_bracket=most_probable_universe[0]
 best_prob=most_probable_universe[1]
 
 print(f"{best_prob:.3%}")
+winners_rows=[]
 for teama, teamb in fixt.items():
     team_a_name=df.loc[df['num']==teama, 'team'].item()
     team_b_name=df.loc[df['num']==teamb, 'team'].item()
-    winner=team_a_name if teama in best_bracket else team_b_name
-    df.loc[df['team']==winner].to_csv('../Data/W.csv', mode='a', header=False, index=False)
-    print(f"{team_a_name} vs {team_b_name}::WINNER: {winner}")
+    winner_name=team_a_name if teama in best_bracket else team_b_name
+    print(f"{team_a_name} vs {team_b_name}::WINNER: {winner_name}")
+    winner_row=df[df['team']==winner_name].copy()
+    winner_row['num']=sf_to_f_mapping.get(teama)
+    winners_rows.append(winner_row)
+
+sf_df=pd.concat(winners_rows, ignore_index=True)
+sf_df.to_csv('../Data/W.csv', index=False)
+print(f"\n2 finalists exported to '../Data/W.csv'")

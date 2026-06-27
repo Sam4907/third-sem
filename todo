@@ -27,3 +27,5 @@ day 12 260618: documentation, cleanup and wrap up
 day 17 260623: itq group a and group b dry runs
 day 18 260624: itq automated using odds and xg
 day 19 260625: itq time warp 2 (mid warp (placeholder))
+day 20 260626: itq placeholders complete (predicted winner: esp)
+day 21 260627: itq automated (json file for xg from fotmob and csv writing to /Data) and updated log.txt
