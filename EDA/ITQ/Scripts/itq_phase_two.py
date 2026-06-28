@@ -3,7 +3,7 @@ import numpy as np
 import itertools
 from scipy.stats import poisson
 
-df=pd.read_csv("../Data/R16_placeholder.csv")
+df=pd.read_csv("../Data/R_16.csv")
 stats=pd.read_csv("../Data/xg.csv", index_col="country")
 req=pd.read_csv("../Data/annex_c.csv")
 

@@ -13,15 +13,11 @@ When I first started calculating weights to assign to each parallel group outcom
 
 Now, we wait for Matchday 3 to wrap up on the pitch so we can see how the Qualiverse stacks up against reality.
 
->Dr. Strange: I went forward in time. To view alternate futures. To see all the possible outcomes of the coming conflict.
+>Spider-Man 2099: This here, this is all of us. All of our lives woven together in a beautiful web of life and destiny
 >
->Quill: How many did you see?
+>Miles Morales 1610: The Spider-Verse...
 >
->Dr. Strange: Fourteen million, six hundred and five.
->
->Tony Stark: How many did we win?
->
->Dr. Strange: One.
+>Spider-Man 2099: Spider-Verse, oh, that's stupid. It's called the Arachno-Humanoid Poly-Multiverse. Which sounds stupid too, I guess. 
 
 ## Project Evolution
 
@@ -36,6 +32,7 @@ The initial iteration of the script (see `itq_script_uo.py`) ingested public boo
 To establish an objective data basis, the legacy engine was decoupled from bookmaker files. The system now maps pure, underlying team execution metrics derived directly from tournament data (`xg.csv`):
 * **Expected Goals (xG):** Quantifies territorial dominance and high-quality chance creation to establish an absolute Attack Strength rating.
 * **Goals Against (GA):** Quantifies defensive structural integrity to calculate a Defense Weakness factor.
+* **Note:** In further iterations of the model, Elo ratings have also been included.
 
 ---
 
@@ -67,3 +64,11 @@ This transition immediately corrected the model's trajectory. Swapping to xG rev
 Time Warp 1 automates the complex 12-group FIFA progression logic:
 1. **Top 24:** It filters and extracts the top 2 teams from Groups A-L using a strict descending hierarchy: Points $\rightarrow$ Goal Difference $\rightarrow$ Goals Scored.
 2. **Additional 8:** The 12 third-place survivors are consolidated into a temporary matrix. The engine runs a global tournament-wide descending sort across their point profiles and executes a strict `.head(8)` slice, instantly eliminating the bottom 4 underperforming variants.
+
+---
+## Author Details
+**Developer:** [Sameeha Yasmin](https://github.com/Sam4907)
+
+**Contact me:** [samyasmin49@gmail.com](mailto:samyasmin49@gmail.com)
+
+**LinkedIn:** https://www.linkedin.com/in/sameeha-yasmin-a75a1437b/

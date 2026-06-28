@@ -60,7 +60,7 @@ except FileNotFoundError:
     data=None
 
 if data:
-    csv_filename="live_xg.csv"
+    csv_filename="xg.csv"
     headers=["country", "xg", "ga"]
     with open(csv_filename, mode='w', newline='', encoding='utf-8') as csv_file:
         writer=csv.writer(csv_file)
