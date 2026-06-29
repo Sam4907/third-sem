@@ -88,7 +88,7 @@ predicted bracket:
 
 predicted bracket after correction: 
         13.365%
-        sa vs can::WINNER: can
+        sa vs can::WINNER: can (correct)
         ned vs mar::WINNER: ned
         por vs cro::WINNER: por
         esp vs aut::WINNER: esp
