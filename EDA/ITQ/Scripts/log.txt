@@ -88,8 +88,8 @@ predicted bracket:
 
 predicted bracket after correction: 
         13.365%
-        sa vs can::WINNER: can (correct)
-        ned vs mar::WINNER: ned
+        sa vs can::WINNER: can 
+        ned vs mar::WINNER: ned (incorrect)
         por vs cro::WINNER: por
         esp vs aut::WINNER: esp
         bra vs jap::WINNER: bra
@@ -99,7 +99,7 @@ predicted bracket after correction:
         mex vs ecu::WINNER: mex
         sui vs alg::WINNER: sui
         usa vs bih::WINNER: usa
-        ger vs par::WINNER: ger
+        ger vs par::WINNER: ger (incorrect, uhh germany?)
         bel vs sen::WINNER: bel
         fra vs swe::WINNER: fra
         col vs gha::WINNER: col
@@ -108,14 +108,25 @@ predicted bracket after correction:
 ROUND OF 16: 
 predicted bracket:
         18.792%
-        ger vs fra::WINNER: fra
-        can vs mar::WINNER: mar
+        ger vs fra::WINNER: fra (incorrect: par vs fra)
+        can vs ned::WINNER: ned (incorrect: can vs mar)
         por vs esp::WINNER: esp
         usa vs bel::WINNER: bel
-        bra vs nor::WINNER: bra
+        bra vs nor::WINNER: bra 
         mex vs eng::WINNER: eng
         arg vs egy::WINNER: arg
         sui vs col::WINNER: col
+
+predicted bracket after correction:
+        23.976%
+        par vs fra::WINNER: fra
+        can vs mar::WINNER: mar
+        por vs esp::WINNER: esp
+        usa vs bel::WINNER: bel
+        bra vs nor::WINNER: bra (incorrect)
+        mex vs eng::WINNER: eng
+        arg vs egy::WINNER: arg
+        sui vs col::WINNER: col (incorrect)
 
 QUARTER-FINALS:
 predicted bracket:
@@ -124,6 +135,13 @@ predicted bracket:
         bra vs eng::WINNER: eng
         esp vs bel::WINNER: esp
         arg vs col::WINNER: arg
+
+predicted bracket after correction: 
+        80.107%
+        fra vs mar::WINNER: fra
+        nor vs eng::WINNER: eng
+        esp vs bel::WINNER: esp
+        arg vs sui::WINNER: arg
 
 SEMI-FINALS:
 predicted bracket:
