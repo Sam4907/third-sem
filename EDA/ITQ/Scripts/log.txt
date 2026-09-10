@@ -1,3 +1,5 @@
+//to do: decide calculation metrics and add calculations
+
 ROUND OF 32:
 uo   group team  mp  w  d  l  gf  ga  gd  pts status    (final verdict: 83.33% accuracy)
 0      A  mex   3  3  0  0   4   0   4    9     yes

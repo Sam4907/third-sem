@@ -54,7 +54,8 @@ I have to admit football (not soccer) is not an easy sport to predict. Dark hors
 │   ├── itq_phase_three.py    # Script generates quarter-finalists
 │   ├── itq_phase_two.py      # Script generates R16
 │   └── log.txt               # Model validation log
-│
+├── stats.py                  # Generates visualisation
+├── fig.png                   # Visualisation
 └──README.md (this file)
 ```
 
@@ -89,6 +90,12 @@ python Scripts/itq_phase_five.py
 # Phase 6: Predicts the Grand Final -> Generates the Winner
 python Scripts/itq_phase_six.py
 ```
+
+## Results
+The Round of 32 started off strong at 35.5% accuracy before reality and unexpected group stage twists brought it down to 13.4% post-correction. Things stabilized through the Round of 16 (hovering between 18.8% and 24.0%). By the Quarter-finals, the model hit 80.1% accuracy after corrections, followed by a solid 66.8% in the Semi-finals.
+
+The grand finale hit a 78.4% confidence rating right before Spain sealed the deal against Argentina.
+
 ---
 ## Author Details
 **Developer:** [Sameeha Yasmin](https://github.com/Sam4907)
