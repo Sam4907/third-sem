@@ -1,0 +1,122 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "minimart",
+      "request": "launch",
+      "mainClass": "minimart",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "case1",
+      "request": "launch",
+      "mainClass": "case1",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "main",
+      "request": "launch",
+      "mainClass": "main",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "tenth",
+      "request": "launch",
+      "mainClass": "JavaLab.tenth",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "Prog11",
+      "request": "launch",
+      "mainClass": "JavaLab.Prog11",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "Prog28",
+      "request": "launch",
+      "mainClass": "JavaLab.Prog28",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "Seventh",
+      "request": "launch",
+      "mainClass": "JavaLab.Seventh",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "Prog27",
+      "request": "launch",
+      "mainClass": "JavaLab.Prog27",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "Sixth",
+      "request": "launch",
+      "mainClass": "JavaLab.Sixth",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "Fifth",
+      "request": "launch",
+      "mainClass": "JavaLab.Fifth",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "Fourth",
+      "request": "launch",
+      "mainClass": "JavaLab.Fourth",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "Third",
+      "request": "launch",
+      "mainClass": "JavaLab.Third",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "Second",
+      "request": "launch",
+      "mainClass": "JavaLab.Second",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "type": "java",
+      "name": "First",
+      "request": "launch",
+      "mainClass": "Learning.First",
+      "projectName": "third sem_71a32d31"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/samya/OneDrive/Desktop/Sameeha/Code/coding/third sem/Sem Labs/ALCP Lab/Week 7",
+      "program": "c:/Users/samya/OneDrive/Desktop/Sameeha/Code/coding/third sem/Sem Labs/ALCP Lab/Week 7/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
