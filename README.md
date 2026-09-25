@@ -1,6 +1,6 @@
-# Third Semester Portfolio: Pre-Semester Version
+# Third Semester Portfolio
 
-This monorepo tracks my transition from writing backend exploratory data analysis scripts to deploying full-stack, low-latency web applications. The core theme so far across these projects is breaking down complex sports telemetry data using high-performance computation.
+This monorepo tracks my transition from writing backend exploratory data analysis scripts to deploying full-stack, low-latency web applications. The core theme across the initial projects is breaking down complex sports telemetry data using high-performance computation. Now, as I navigate the ongoing semester, it includes lab coursework.
 
 ---
 
@@ -9,9 +9,9 @@ After an eventful first year of engineering, I wanted to use this semester break
 
 However, once the data logic was working, I decided to push myself a step further and finally learn frontend development (through `GridVector-App`), which has always been something I've wanted to learn.
 
-With the start of the world cup, I wanted to see if I could predict who'll be crowned champions so I started working on `Into the Qualiverse`.
+With the start of the world cup, I wanted to see if I could predict who'll be crowned champions so I started working on `Into the Qualiverse` (Status report: SUCCESS!).
 
-This repository serves as a sandbox for my third semester, going from EDA to endpoints and everything in between.
+Additionally, this semester I've been working on a rigorous into the limits of content-hybrid generalizability with my team, which can be found at **[this repo](https://github.com/Sreeya-Rao-E/Content-Hybrid-Kuairec).**
 
 >"Our goal is to win Premier League"  
 > ~A very unfortunate Ruben Amorim
@@ -76,6 +76,10 @@ The workspace is organized into two primary segments: core exploratory data engi
 |   │   ├── itq_phase_two.py      # Script generates R16
 |   │   └── log.txt               # Model validation log
 |   └──README.md 
+|── 📁 Sem Labs/
+|   │
+|   ├── 📁 ALCP Lab/             # Coursework for ALCP Lab
+|   ├── 📁 Java Lab/             # Coursework for JP Lab
 ├──todo.txt
 └──README.md (this file)
 
@@ -89,7 +93,7 @@ For full implementation details, mathematical breakdowns and documentation, plea
 * **[Regista](./EDA/Regista/README.md):** Advanced UCL midfield playmaking analysis using customized position-stratified scoring using Pandas.
 * **[GridVector-Core](./EDA/GridVector/README.md):** High-performance, low-level F1 simulation data engine built completely on pure NumPy array masking.
 * **[GridVector-App](./Frontend/GridVector-App/README.md):** Full-stack interactive evolution of the data core, mapping analytics to an asynchronous neon dark-mode UI.
-* **[Into the Qualiverse](./EDA/ITQ/README.md):** parsimonious prediction engine using a Poisson probability distribution to identify the single most mathematically probable path to the finals.
+* **[Into the Qualiverse](./EDA/ITQ/README.md):** Parsimonious prediction engine using a Poisson probability distribution to identify the single most mathematically probable path to the finals.
 
 ---
 ## Author Details
