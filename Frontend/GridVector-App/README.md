@@ -1,6 +1,8 @@
 Markdown
 # GridVector App: 2025 F1 Season Telemetry Dashboard
-
+<p align="center">
+  <img src="Images/Screenshots/overtakerreport.png" width="48%">
+</p>
 Building on GridVector-Core, GridVector-App is a full-stack, low-latency telemetry web application designed to track, calculate, and visualize driver and constructor performances from the 2025 Formula 1 season. Built on a pure vectorized NumPy computation engine and mapped via a lightweight Flask REST API, the platform delivers real-time sports analytics straight to a clean, custom-themed, interactive frontend dashboard.
 
 ---
@@ -19,6 +21,11 @@ In the end, it works as intended. It translates raw vector masks into a dark-mod
 The Flask backend exposes custom micro-routes executing high-performance analytical masks:
 
 ### Core Global Analytics
+
+<p align="center">
+  <img src="Images/Screenshots/driveranalytics.png" width="48%">
+  <img src="Images/Screenshots/trackanalytics.png" width="48%">
+</p>
 
 * **`/overtaker` (`gr_overtaker`)**: Filters out non-finishing states (`DQ`, `NC`, `DNF`) and computes the differential between starting and finishing positions across all tracks, sorting drivers by maximum grid progression.
 * **`/eff` (`gr_eff_index`)**: Computes structural positional consistency by calculating driver standard deviations directly via raw bincount array weights:
