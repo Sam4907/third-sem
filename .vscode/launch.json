@@ -106,8 +106,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/samya/OneDrive/Desktop/Sameeha/Code/coding/third sem/Sem Labs/ALCP Lab/Week 7",
-      "program": "c:/Users/samya/OneDrive/Desktop/Sameeha/Code/coding/third sem/Sem Labs/ALCP Lab/Week 7/build/Debug/outDebug",
+      "cwd": "c:/Users/samya/OneDrive/Desktop/Sameeha/Code/coding/third sem/Sem Labs/ALCP Lab/Week 9",
+      "program": "c:/Users/samya/OneDrive/Desktop/Sameeha/Code/coding/third sem/Sem Labs/ALCP Lab/Week 9/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

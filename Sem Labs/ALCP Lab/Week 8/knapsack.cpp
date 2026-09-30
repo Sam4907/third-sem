@@ -31,7 +31,7 @@ void knapsack(int n, vector<int>weights, vector<int>profit, int m){
 }
 
 int main(){
-    /*int n, m;
+    int n, m;
     cout<<"Enter the number of items: ";
     cin>>n;
     vector<int>weights(n);
@@ -44,10 +44,10 @@ int main(){
         cout<<endl;
     }
     cout<<"Enter the maximum weight: ";
-    cin>>m;*/
-    int n=4, m=8;
+    cin>>m;
+    /*int n=4, m=8;
     vector<int>weights={2, 3, 4, 5};
-    vector<int>profits={1, 2, 5, 6};
+    vector<int>profits={1, 2, 5, 6};*/
     knapsack(n, weights, profits, m);
     return 0;
 }

@@ -37,13 +37,13 @@ void lcs(string x, string y){
 }
 
 int main(){
-    //string x, y;
-    /*cout<<"Enter string 1: ";
+    string x, y;
+    cout<<"Enter string 1: ";
     cin>>x;
     cout<<"Enter string 2: ";
-    cin>>y;*/
-    string x="abaaba";
-    string y="babbab";
+    cin>>y;
+    /*string x="abaaba";
+    string y="babbab";*/
     lcs(x, y);
     return 0;
 }
